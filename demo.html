@@ -3,45 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Artist</title>
+    <title>Hover Animation</title>
     <style>
-        h1 {
-            text-align: center;
-            font-family: Arial, sans-serif;
-            font-size: 2em;
+        body {
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
         }
 
-        h1 span {
-            margin: 0 10px;
+        .page4-right-bottom-circle {
             position: relative;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #000;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            cursor: pointer;
         }
 
-        h1 span::before,
-        h1 span::after {
-            content: '';
+        .page4-right-bottom-circle img {
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 2px;
             width: 50px;
-            background-color: black;
+            left: -50px; /* Start off-screen */
+            transition: all 0.1s linear;
         }
 
-        h1 span::before {
-            left: -60px;
-        }
-
-        h1 span::after {
-            right: -60px;
+        .page4-right-bottom-circle h1 {
+            font-size: 24px;
+            position: absolute;
+            color: #000;
+            transition: all 0.1s linear;
         }
     </style>
 </head>
 <body>
-    <h1>
-        interactive <span>artist!</span>
-    </h1>
+    <div class="page4-right-bottom-circle">
+        <img src="asset/svg/arrow.svg" alt="arrow">
+        <h1>All Work</h1>
+    </div>
+
+    <!-- GSAP Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script>
+        // Select the container element
+        const circle = document.querySelector('.page4-right-bottom-circle');
+        const img = circle.querySelector('img');
+        const h1 = circle.querySelector('h1');
+
+        // Add hover event listeners
+        circle.addEventListener('mouseenter', () => {
+            gsap.to(h1, {
+                x: 100, // Move h1 to the right
+                opacity: 0,
+                duration: 0.,
+                ease: "power2.out",
+            });
+
+            gsap.to(img, {
+                x: 100, // Move img inside the box from the left
+                duration: 0.1,
+                ease: "power2.out",
+            });
+        });
+
+        circle.addEventListener('mouseleave', () => {
+            gsap.to(h1, {
+                x: 0, // Reset h1 position
+                opacity: 1,
+                duration: 0.1,
+                ease: "power2.in",
+            });
+
+            gsap.to(img, {
+                x: -50, // Reset img position
+                duration: 0.1,
+                ease: "power2.in",
+            });
+        });
+    </script>
 </body>
 </html>

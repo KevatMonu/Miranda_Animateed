@@ -236,11 +236,6 @@ html, body{
   font-size: 10.8vw;
 }
 
-.left-top h1 .line{
-  border: 1px solid black;
-  position: absolute;
-}
-
 
 .img-box{
   width: 101%;
@@ -320,3 +315,78 @@ html, body{
   line-height: .98;
   letter-spacing: 1vw;
 }
+
+
+
+#page4{
+  padding: 1vw 2vw;
+}
+
+#page4-container{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #c03f13;
+  display: grid;
+  grid-template-columns: 62% 39%;
+  overflow: hidden;
+
+}
+  .page4-left{
+    min-height: 100vh;
+    padding: 0 1vw 0 0;
+    border-right: 1px solid #1d1d1b;
+  }
+  
+  .page4-right{
+    min-height:100vh;
+    padding: 0 2vw;
+    background-color: aqua;
+  }
+  
+  
+  .page4-right-top h1{
+    text-align: start;
+    font-family: 'Canopee',sans-serif;
+    font-size: 7vw;
+    line-height: .88;
+    font-weight:500;
+    text-align: right;
+  }
+  
+  .page4-right-top h1 span{
+    font-size: 13.2vw;
+  }
+  .page4-right-top h1>#c{
+    font-family: 'Domaine Display', sans-serif;
+    font-size: 7vw;
+  }
+
+  .page4-right-middle{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: start;
+    gap: 2vw;
+    padding: 2vw 2vw;
+  }
+
+  .page4-right-middle p{
+    font-family: 'Edit';
+    font-size: 2.1vw;
+   text-align: start;
+   line-height: 1.2;
+   font-weight: 600;
+  }
+
+  .page4-right-bottom-circle{
+    border: 1px solid #000;
+    text-align: center;
+    display:flex ;
+    border-radius: 80%;
+    padding: 2vw 1vw;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  
