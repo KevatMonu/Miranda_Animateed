@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Artist</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 span {
+            margin: 0 10px;
+            position: relative;
+        }
+
+        h1 span::before,
+        h1 span::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 2px;
+            width: 50px;
+            background-color: black;
+        }
+
+        h1 span::before {
+            left: -60px;
+        }
+
+        h1 span::after {
+            right: -60px;
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        interactive <span>artist!</span>
+    </h1>
+</body>
+</html>
