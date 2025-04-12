@@ -3,207 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizontal Side-by-Side Testimonial Cards</title>
+    <title>Document</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        #cards {
+  width: 100%;
+  height: 70vh;
+  padding: 1vw 2vw;
+  margin-bottom: 3vw;
+}
 
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #e5e0d8;
-            font-family: 'Times New Roman', Times, serif;
-            padding: 20px;
-        }
+.card-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-top: 1.5vw;
+  padding-bottom: 4vw;
+  border-bottom: 1px solid #000;
+}
 
-        .container {
-            max-width: 100%;
-            width: 100%;
-            padding: 20px;
-            overflow-x: auto;
-        }
+.card {
+  width: 40vw;
+  height: 25vw;
+  border: 1px solid #000;
+  border-radius: 0.5vw;
+  background-color: #cdc6be;
+  box-shadow: -2px 5px 20px -8px #000;
+}
 
-        .card-container {
-            display: flex;
-            align-items: stretch;
-            width: max-content;
-            gap: 0;
-            margin: 0 auto;
-        }
+.card1 {
+  position: absolute;
+  left: 0;
+}
 
-        .card {
-            background-color: #e5e0d8;
-            border: 1px dashed #555;
-            border-radius: 5px;
-            padding: 25px;
-            width: 280px;
-            position: relative;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
+.card2 {
+  position: absolute;
+  left: 20vw;
+}
+.card3 {
+  position: absolute;
+  left: 37vw;
+}
+.card4 {
+  position: absolute;
+  right: 0;
+}
+.inner-info {
+  margin: 1.5vw;
+  width: 37vw;
+  height: 22vw;
+  background-image: url(asset/svg/dashed.svg);
+}
 
-        /* Connect cards with overlapping borders */
-        .card:not(:first-child) {
-            margin-left: -1px;
-        }
+.info-up h1 {
+  font-family: "Edit";
+  font-size: 2.1vw;
+  font-weight: 600;
+  line-height: 3.2vw;
+  padding: 1vw 0 0 2.3vw;
+  text-decoration: underline;
+  text-underline-offset: 0.3vw;
+  text-decoration-thickness: 0.5px;
+  text-decoration-color: #0000007a;
+}
 
-        .quote {
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 60px;
-            font-style: italic;
-            color: #222;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: -webkit-box;
-            -webkit-line-clamp: 6;
-            -webkit-box-orient: vertical;
-        }
+.info-down{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 2vw 0 0 2vw;
+}
+.info-down-down{
+  padding: 5vw 0 0 2vw;
+}
+.info-left{
+  width: 3.5vw;
+  height: 3.5vw;
+  border: 1px solid #000;
+  border-radius: 50%;
+  margin-right: 1vw;
+}
 
-        .quote a {
-            color: #222;
-            text-decoration: underline;
-            font-weight: bold;
-        }
+.info-left img{
+  width: 100%;
+  height:100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
 
-        .profile {
-            display: flex;
-            align-items: center;
-            position: absolute;
-            bottom: 25px;
-            left: 25px;
-        }
+.info-right h1{
+    font-family: "Canopee", sans-serif;
+    letter-spacing: .1vw;
+}
 
-        .profile-img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin-right: 15px;
-            background-color: #ccc;
-            border: 1px solid #555;
-        }
+.info-right p{
+  font-family: 'Edit';
+  font-size: 1.4vw;
+  text-transform: capitalize;
+}
 
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.info-right p>span{
+  text-decoration: underline;
+}
 
-        .profile-info {
-            display: flex;
-            flex-direction: column;
-        }
+#page6{
+  padding: 1vw 3vw;
+}
 
-        .name {
-            font-weight: bold;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .title {
-            font-size: 12px;
-            color: #555;
-        }
-
-        .title a {
-            color: #222;
-            text-decoration: underline;
-        }
-
-        .container-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            background-color: #e5e0d8;
-        }
-
-        @media (max-width: 768px) {
-            .card-container {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .card {
-                width: 100%;
-                margin-bottom: 15px;
-                margin-left: 0 !important;
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="container-wrapper">
-        <div class="container">
-            <div class="card-container">
-                <div class="card">
-                    <div class="quote">
-                        "<a href="#">Blurring the line between design and development</a>, Niccolo has an unmatched talent for precision execution in a way that elevates the whole industry"
-                    </div>
-                    <div class="profile">
-                        <div class="profile-img">
-                            <img src="/api/placeholder/40/40" alt="Sam Day">
-                        </div>
-                        <div class="profile-info">
-                            <div class="name">SAM DAY</div>
-                            <div class="title">Creative Director & Design Lead</div>
-                        </div>
-                    </div>
+    
+    <div id="cards">
+        <div class="card-container">
+          <div class="card card1">
+            <div class="inner-info">
+              <div class="info-up">
+                <h1>
+                  “Blurring the line between design &amp; dev, <br />
+                  Niccolo has an umatched eye for detail and <br />
+                  precise execution in his work which pushes <br />
+                  the whole industry forward”
+                </h1>
+              </div>
+              <div class="info-down">
+                <div class="info-left">
+                  <img src="asset/image/info-p1.jpg" alt="" />
                 </div>
-
-                <div class="card">
-                    <div class="quote">
-                        "<a href="#">Niccolò's eye for detail</a> and his impeccable aesthetic sense put him among the leaders in today's design landscape"
-                    </div>
-                    <div class="profile">
-                        <div class="profile-img">
-                            <img src="/api/placeholder/40/40" alt="Sofia Papadopoulou">
-                        </div>
-                        <div class="profile-info">
-                            <div class="name">SOFIA PAPADOPOULOU</div>
-                            <div class="title">Designer & Art Director</div>
-                        </div>
-                    </div>
+                <div class="info-right">
+                  <h1>Sam Day</h1>
+                  <p>Co-Founder at <span>Adoratorio</span></p>
                 </div>
-
-                <div class="card">
-                    <div class="quote">
-                        "<a href="#">High-skilled designer</a> with rich experiences with each project. His signature is more visible in every product he launches and this makes him unique"
-                    </div>
-                    <div class="profile">
-                        <div class="profile-img">
-                            <img src="/api/placeholder/40/40" alt="Bruno Arizio">
-                        </div>
-                        <div class="profile-info">
-                            <div class="name">BRUNO ARIZIO</div>
-                            <div class="title">Creative Director at Design Studio</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="quote">
-                        "<a href="#">A very promising Creative Director and Interactive Designer</a> given his natural aesthetic taste and innate instinct for functionality"
-                    </div>
-                    <div class="profile">
-                        <div class="profile-img">
-                            <img src="/api/placeholder/40/40" alt="Enea Rossi">
-                        </div>
-                        <div class="profile-info">
-                            <div class="name">ENEA ROSSI</div>
-                            <div class="title">Co-Founder at <a href="#">Adoratorio</a></div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
+          <div class="card card2">
+            <div class="inner-info">
+              <div class="info-up">
+                <h1>
+                  "Niccolò‘s eye for detail & design as well as <br />
+                  his impeccable aesthetics, make him one of <br />
+                  the leaders in today’s digital design scene"
+                </h1>
+              </div>
+              <div class="info-down info-down-down">
+                <div class="info-left">
+                  <img src="asset/image/info-p2.jpg" alt="" />
+                </div>
+                <div class="info-right">
+                  <h1>Spofiy papadopoulou</h1>
+                  <p>Co-Founder at <span>Adoratorio</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card card3">
+            <div class="inner-info">
+              <div class="info-up">
+                <h1>
+                  "High-skilled designer who creates novel <br />
+                  experiences with ease and craft. His <br />
+                  signature is more vivid on each new project <br />he launches
+                  and this is only the start"
+                </h1>
+              </div>
+              <div class="info-down">
+                <div class="info-left">
+                  <img src="asset/image/info-p3.jpg" alt="" />
+                </div>
+                <div class="info-right">
+                  <h1>bruno arizio</h1>
+                  <p>Co-Founder at <span>Adoratorio</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card card4">
+            <div class="inner-info">
+              <div class="info-up">
+                <h1>
+                  "A very promising Creative Director and <br />
+                  interactive Designer given his natural <br />
+                  aesthetic taste and innate instinct for <br />functionality "
+                </h1>
+              </div>
+              <div class="info-down">
+                <div class="info-left">
+                  <img src="asset/image/info-p4.jpg" alt="" />
+                </div>
+                <div class="info-right">
+                  <h1>Enea Rossi</h1>
+                  <p>Co-Founder at <span>Adoratorio</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </div>
 </body>
 </html>
