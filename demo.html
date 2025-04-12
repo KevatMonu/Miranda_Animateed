@@ -3,91 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hover Animation</title>
+    <title>Horizontal Side-by-Side Testimonial Cards</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background-color: #e5e0d8;
+            font-family: 'Times New Roman', Times, serif;
+            padding: 20px;
         }
 
-        .page4-right-bottom-circle {
+        .container {
+            max-width: 100%;
+            width: 100%;
+            padding: 20px;
+            overflow-x: auto;
+        }
+
+        .card-container {
+            display: flex;
+            align-items: stretch;
+            width: max-content;
+            gap: 0;
+            margin: 0 auto;
+        }
+
+        .card {
+            background-color: #e5e0d8;
+            border: 1px dashed #555;
+            border-radius: 5px;
+            padding: 25px;
+            width: 280px;
             position: relative;
-            width: 200px;
-            height: 200px;
-            border: 2px solid #000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Connect cards with overlapping borders */
+        .card:not(:first-child) {
+            margin-left: -1px;
+        }
+
+        .quote {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 60px;
+            font-style: italic;
+            color: #222;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 6;
+            -webkit-box-orient: vertical;
+        }
+
+        .quote a {
+            color: #222;
+            text-decoration: underline;
+            font-weight: bold;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: 25px;
+            left: 25px;
+        }
+
+        .profile-img {
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             overflow: hidden;
+            margin-right: 15px;
+            background-color: #ccc;
+            border: 1px solid #555;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #fff;
-            cursor: pointer;
+            flex-direction: column;
         }
 
-        .page4-right-bottom-circle img {
-            position: absolute;
-            width: 50px;
-            left: -50px; 
-            transition: all 0.1s linear;
+        .name {
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .page4-right-bottom-circle h1 {
-            font-size: 24px;
-            position: absolute;
-            color: #000;
-            transition: all 0.1s linear;
+        .title {
+            font-size: 12px;
+            color: #555;
+        }
+
+        .title a {
+            color: #222;
+            text-decoration: underline;
+        }
+
+        .container-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            background-color: #e5e0d8;
+        }
+
+        @media (max-width: 768px) {
+            .card-container {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .card {
+                width: 100%;
+                margin-bottom: 15px;
+                margin-left: 0 !important;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="page4-right-bottom-circle">
-        <img src="asset/svg/arrow.svg" alt="arrow">
-        <h1>All Work</h1>
+    <div class="container-wrapper">
+        <div class="container">
+            <div class="card-container">
+                <div class="card">
+                    <div class="quote">
+                        "<a href="#">Blurring the line between design and development</a>, Niccolo has an unmatched talent for precision execution in a way that elevates the whole industry"
+                    </div>
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="/api/placeholder/40/40" alt="Sam Day">
+                        </div>
+                        <div class="profile-info">
+                            <div class="name">SAM DAY</div>
+                            <div class="title">Creative Director & Design Lead</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="quote">
+                        "<a href="#">Niccolò's eye for detail</a> and his impeccable aesthetic sense put him among the leaders in today's design landscape"
+                    </div>
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="/api/placeholder/40/40" alt="Sofia Papadopoulou">
+                        </div>
+                        <div class="profile-info">
+                            <div class="name">SOFIA PAPADOPOULOU</div>
+                            <div class="title">Designer & Art Director</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="quote">
+                        "<a href="#">High-skilled designer</a> with rich experiences with each project. His signature is more visible in every product he launches and this makes him unique"
+                    </div>
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="/api/placeholder/40/40" alt="Bruno Arizio">
+                        </div>
+                        <div class="profile-info">
+                            <div class="name">BRUNO ARIZIO</div>
+                            <div class="title">Creative Director at Design Studio</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="quote">
+                        "<a href="#">A very promising Creative Director and Interactive Designer</a> given his natural aesthetic taste and innate instinct for functionality"
+                    </div>
+                    <div class="profile">
+                        <div class="profile-img">
+                            <img src="/api/placeholder/40/40" alt="Enea Rossi">
+                        </div>
+                        <div class="profile-info">
+                            <div class="name">ENEA ROSSI</div>
+                            <div class="title">Co-Founder at <a href="#">Adoratorio</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <!-- GSAP Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script>
-        // Select the container element
-        const circle = document.querySelector('.page4-right-bottom-circle');
-        const img = circle.querySelector('img');
-        const h1 = circle.querySelector('h1');
-
-        // Add hover event listeners
-        circle.addEventListener('mouseenter', () => {
-            gsap.to(h1, {
-                x: 100, // Move h1 to the right
-                opacity: 0,
-                duration: 0.,
-                ease: "power2.out",
-            });
-
-            gsap.to(img, {
-                x: 100, // Move img inside the box from the left
-                duration: 0.1,
-                ease: "power2.out",
-            });
-        });
-
-        circle.addEventListener('mouseleave', () => {
-            gsap.to(h1, {
-                x: 0, // Reset h1 position
-                opacity: 1,
-                duration: 0.1,
-                ease: "power2.in",
-            });
-
-            gsap.to(img, {
-                x: -50, // Reset img position
-                duration: 0.1,
-                ease: "power2.in",
-            });
-        });
-    </script>
 </body>
 </html>

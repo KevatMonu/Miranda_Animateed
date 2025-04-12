@@ -43,3 +43,6 @@ var swiper = new Swiper(".mySwiper", {
       });
   });
 
+
+
+// marquee script//
